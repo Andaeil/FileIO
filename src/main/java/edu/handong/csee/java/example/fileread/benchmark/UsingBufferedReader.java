@@ -9,13 +9,14 @@ import java.io.*;
 public class UsingBufferedReader {
 	
     public static void main(String[] args) throws IOException {
-    	String filename = (args[0]);
+    	String filename1 = (args[0]);
+    	String filename2 = (args[1]);
     	
-        //-------------- Test reading file. --------------------
+        //-------------- Test reading 1MB file. --------------------
 
         StopWatch.start();
 
-        BufferedReader inputStream= new BufferedReader(new FileReader(filename));
+        BufferedReader inputStream= new BufferedReader(new FileReader(filename1));
         while (inputStream.read()!=-1){}
 
         long duration = StopWatch.stop();
@@ -23,15 +24,17 @@ public class UsingBufferedReader {
         
         inputStream.close();
 
-        /*StopWatch.start();
+      //-------------- Test reading 10MB file. --------------------
+        
+        StopWatch.start();
 
-        BufferedReader inputStream2= new BufferedReader(new FileReader());
+        BufferedReader inputStream2= new BufferedReader(new FileReader(filename2));
         while (inputStream2.read()!=-1){}
 
         long duration2 = StopWatch.stop();
         System.out.println(duration2 + " milsec");
 
-        inputStream2.close();*/
+        inputStream2.close();
 
         /*
         //-------------- Test reading 100 MB file. --------------------
